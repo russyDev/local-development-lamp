@@ -11,6 +11,7 @@ services:
         depends_on:
          - mysql
     mysql:
+        #platform: linux/x86_64 - uncomment this line for mac os
         command: --default-authentication-plugin=mysql_native_password
         image: 'mysql:8.0'
         ports:
@@ -20,7 +21,6 @@ services:
             MYSQL_DATABASE: '${DB_DATABASE}'
             MYSQL_ROOT_USER: '${DB_USERNAME}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-            mysql_native_password: true
         volumes:
             - ./docker/db/:/var/lib/mysql
 
