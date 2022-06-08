@@ -5,8 +5,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt update && apt install -y apache2 php libapache2-mod-php php-mysql php-cli curl php-curl php-xml php-mbstring git zip unzip php-zip
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php && \
-php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-a2enmod rewrite
+php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+RUN a2enmod rewrite
 
 WORKDIR /var/www/html
 
