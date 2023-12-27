@@ -17,10 +17,11 @@ services:
         ports:
             - ${DB_PORT}:3306
         environment:
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: SOME_ROOT_PASSWORD
             MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_ROOT_USER: ${DB_USERNAME}
-            MYSQL_ALLOW_EMPTY_PASSWORD: yes
+            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ALLOW_EMPTY_PASSWORD: no
         volumes:
             - ./docker/db/:/var/lib/mysql
             - ./docker/db_conf/my.conf:/etc/mysql/my.conf
